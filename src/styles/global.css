@@ -1,0 +1,256 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ *
+   Editorial Ivory — design system
+   Tailwind v4 reads its theme from this @theme block (the JS config is
+   not auto-loaded in v4). Every token below becomes a real utility,
+   e.g. --color-bordeaux -> text-bordeaux / bg-bordeaux / border-bordeaux.
+ * ------------------------------------------------------------------ */
+@theme {
+  /* Surfaces */
+  --color-paper: #f7f2ea; /* page background — warm cream */
+  --color-paper-2: #ebe0cb; /* deeper cream — alternating section tint */
+  --color-surface: #fffdf8; /* raised cards */
+  --color-surface-2: #f2ead9; /* nested panels */
+
+  /* Ink */
+  --color-ink: #211b16; /* headlines / near-black espresso */
+  --color-ink-2: #4c4239; /* body copy */
+  --color-ink-3: #7c7065; /* muted / captions */
+
+  /* Lines */
+  --color-line: #e2d8c6; /* hairline borders on cream */
+  --color-line-strong: #d2c4ad;
+
+  /* Accents */
+  --color-bordeaux: #8a2d2d;
+  --color-bordeaux-deep: #6c2020;
+  --color-bordeaux-bright: #a8392f;
+  --color-brass: #b88a2e;
+  --color-brass-soft: #e3c884;
+  --color-brass-light: #d8b463;
+
+  /* Type */
+  --font-sans: "Inter", ui-sans-serif, system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-display: "Fraunces", ui-serif, Georgia, "Times New Roman", serif;
+
+  /* Radii */
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
+
+  /* Shadows — warm, soft, editorial */
+  --shadow-soft: 0 1px 2px rgba(33, 27, 22, 0.04), 0 10px 30px rgba(33, 27, 22, 0.07);
+  --shadow-card: 0 2px 6px rgba(33, 27, 22, 0.05), 0 22px 55px rgba(33, 27, 22, 0.11);
+  --shadow-lift: 0 36px 80px rgba(33, 27, 22, 0.18);
+  --shadow-bordeaux: 0 20px 50px rgba(138, 45, 45, 0.26);
+
+  /* Motion */
+  --animate-float-slow: float-slow 14s ease-in-out infinite;
+  --animate-marquee: marquee 38s linear infinite;
+  --animate-shimmer: shimmer 2.4s ease-in-out infinite;
+}
+
+/* ------------------------------------------------------------------ *
+   Keyframes
+ * ------------------------------------------------------------------ */
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -16px, 0);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes shimmer {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* ------------------------------------------------------------------ *
+   Base
+ * ------------------------------------------------------------------ */
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-paper);
+    color: var(--color-ink-2);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    /* subtle warm vignette so the cream never reads flat */
+    background-image: radial-gradient(
+        1100px 720px at 82% -8%,
+        rgba(184, 138, 46, 0.12),
+        transparent 60%
+      ),
+      radial-gradient(900px 640px at 4% 4%, rgba(138, 45, 45, 0.07), transparent 55%);
+    background-attachment: fixed;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    color: var(--color-ink);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font-family: inherit;
+  }
+
+  ::selection {
+    background: rgba(138, 45, 45, 0.16);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-bordeaux);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  *::-webkit-scrollbar {
+    width: 11px;
+    height: 11px;
+  }
+  *::-webkit-scrollbar-track {
+    background: var(--color-paper-2);
+  }
+  *::-webkit-scrollbar-thumb {
+    background: var(--color-line-strong);
+    border-radius: 999px;
+    border: 3px solid var(--color-paper-2);
+  }
+  *::-webkit-scrollbar-thumb:hover {
+    background: #bda584;
+  }
+}
+
+/* ------------------------------------------------------------------ *
+   Reusable editorial utilities
+ * ------------------------------------------------------------------ */
+@layer components {
+  /* small uppercase label used above section titles */
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--color-bordeaux);
+  }
+  .eyebrow::before {
+    content: "";
+    width: 1.75rem;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.55;
+  }
+
+  /* animated underline link */
+  .ul-link {
+    position: relative;
+    display: inline-block;
+  }
+  .ul-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 1.5px;
+    width: 100%;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .ul-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  /* paper grain / texture overlay (very subtle) */
+  .grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.5;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
+  }
+
+  /* big serif display helper */
+  .display {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 1.02;
+    text-wrap: balance;
+  }
+}
+
+/* ------------------------------------------------------------------ *
+   GSAP reveal: hidden-by-default so there is no flash before JS runs,
+   but always visible when motion is reduced or JS is unavailable.
+ * ------------------------------------------------------------------ */
+.js [data-reveal] {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .js [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .animate-float-slow,
+  .animate-marquee,
+  .animate-shimmer {
+    animation: none !important;
+  }
+}
