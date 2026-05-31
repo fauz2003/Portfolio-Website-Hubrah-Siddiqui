@@ -16,6 +16,9 @@
   "author": "",
   "license": "ISC",
   "type": "module",
+  "engines": {
+    "node": ">=20.19"
+  },
   "bugs": {
     "url": "https://github.com/fauz2003/Portfolio-Website-Hubrah-Siddiqui/issues"
   },
