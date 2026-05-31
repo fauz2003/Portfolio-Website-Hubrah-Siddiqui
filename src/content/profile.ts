@@ -39,10 +39,10 @@ export const PROFILE = {
   ],
 }
 
-// Longer-form "About" narrative.
+// Longer-form "About" narrative (first person, kept short and premium).
 export const ABOUT_PARAGRAPHS: string[] = [
-  'Advocate of the High Court and Founding Partner of SLACC LLP — moving fluently between courtroom advocacy, the mediation table and the boardroom.',
-  'She leads TRUTH, SLACC’s pro bono project for human-rights and criminal-justice cases, and brings a rare blend of advocacy, governance and corporate strategy to every matter.',
+  'I am an Advocate of the High Court and Founding Partner of SLACC LLP — at home in the courtroom, at the mediation table and in the boardroom.',
+  'I also lead TRUTH, our pro bono practice for human rights and criminal justice — bringing advocacy, governance and strategy to every matter.',
 ]
 
 // Pull-quote used as a design moment in the About section.

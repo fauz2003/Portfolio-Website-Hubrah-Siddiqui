@@ -8,26 +8,25 @@ export const TRUTH = {
   acronym: 'TRUTH',
   expansion: 'Together for Rights, Unity, Truth and Humanity',
   description:
-    'SLACC’s pro bono project for human-rights and criminal-justice cases — a voice for the people and causes that need one.',
+    'Our pro bono practice for human rights and criminal justice — a voice for those who need one.',
 }
 
 export const CAUSES: Cause[] = [
   {
     name: 'The Justice League',
-    blurb:
-      'Volunteer Legal Associate on the human-rights project of US–British attorney Clive Stafford Smith OBE.',
+    blurb: 'Volunteer Legal Associate with Clive Stafford Smith OBE’s human-rights project.',
   },
   {
     name: 'Defence for Human Rights',
-    blurb: 'Pro bono legal advisor supporting cases of enforced disappearance and civil liberties.',
+    blurb: 'Pro bono advisor on enforced-disappearance and civil-liberties cases.',
   },
   {
     name: 'The Aafia Movement',
-    blurb: 'Legal advisory in support of the campaign for the rights and repatriation of Dr Aafia Siddiqui.',
+    blurb: 'Legal advisor to the campaign for Dr Aafia Siddiqui’s rights and repatriation.',
   },
   {
     name: 'Pak–Palestine Forum · Save Gaza',
-    blurb: 'Pro bono advisor to the Save Gaza Campaign and allied solidarity initiatives.',
+    blurb: 'Pro bono advisor to the Save Gaza Campaign.',
   },
   {
     name: 'Palestine Action Coalition',
@@ -35,6 +34,6 @@ export const CAUSES: Cause[] = [
   },
   {
     name: 'Saeeda Welfare Organization',
-    blurb: 'Pro bono legal advisor to the welfare organisation and its community centre.',
+    blurb: 'Pro bono advisor to the organisation and its community centre.',
   },
 ]

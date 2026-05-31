@@ -8,7 +8,7 @@ import { EXPERIENCE } from '../content/experience'
     id="experience"
     eyebrow="Experience"
     title="A decade across courts & boards"
-    description="From in-house leadership at national groups to founding her own firm."
+    description="From in-house leadership at national groups to founding my own firm."
   >
     <div class="relative mx-auto max-w-3xl">
       <!-- timeline rail -->

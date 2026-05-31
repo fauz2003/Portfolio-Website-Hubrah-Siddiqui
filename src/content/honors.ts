@@ -22,8 +22,7 @@ export const HONOR_CARDS: HonorCard[] = [
   {
     year: '2012',
     title: '“Leader of Tomorrow”',
-    detail:
-      'Titled by the President of Pakistan; represented youth and addressed the Presidency at the PakLOT Youth Summit.',
+    detail: 'Titled by the President of Pakistan; addressed the Presidency at the PakLOT Youth Summit.',
   },
   {
     year: '2020',
